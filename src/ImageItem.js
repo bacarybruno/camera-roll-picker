@@ -14,11 +14,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const isVideo = (filename) => {
-  const extension = filename.split('.').pop()
-  const videoExtensions = ['m4v', 'avi', 'mpg', 'mp4']
-  return videoExtensions.includes(extension)
-}
+const isVideo = (type) => type.startsWith('video')
 
 const ImageItem = (props) => {
   const {
@@ -30,7 +26,7 @@ const ImageItem = (props) => {
     videoMarker,
     itemSize,
   } = props
-  const { image } = item.node
+  const { image, type } = item.node
 
   const onPress = useCallback(() => {
     onClick(item.node.image)
@@ -45,7 +41,7 @@ const ImageItem = (props) => {
         source={{ uri: image.uri }}
         style={{ height: itemSize, width: itemSize }}
       />
-      {isVideo(image.uri) && videoMarker && React.cloneElement(videoMarker, { style: styles.videoMarker })}
+      {isVideo(type) && videoMarker && React.cloneElement(videoMarker, { style: styles.videoMarker })}
       {selected && selectedMarker && React.cloneElement(selectedMarker, { style: styles.selectedMarker })}
     </TouchableOpacity>
   )
