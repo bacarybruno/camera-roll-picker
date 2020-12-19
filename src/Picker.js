@@ -220,6 +220,11 @@ const CameraRollPicker = (props) => {
     fetch()
   }, [])
 
+  // refresh selected items
+  useEffect(() => {
+    setSelected(propsSelected)
+  }, [propsSelected])
+
   if (initialLoading) {
     return (
       <View style={[styles.loader, { backgroundColor }]}>

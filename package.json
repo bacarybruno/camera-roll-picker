@@ -1,6 +1,6 @@
 {
   "name": "@kebetoo/camera-roll-picker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A camera-roll picker component for react-native",
   "main": "index.js",
   "scripts": {
