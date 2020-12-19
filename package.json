@@ -1,0 +1,36 @@
+{
+  "name": "@kebetoo/camera-roll-picker",
+  "version": "1.0.0",
+  "description": "A camera-roll picker component for react-native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "@react-native-community/cameraroll": "^4.0.1",
+    "react-native": ">=0.59"
+  },
+  "author": "bacarybruno",
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "ios",
+    "android",
+    "camera",
+    "roll",
+    "picker",
+    "mobile",
+    "image",
+    "video"
+  ],
+  "homepage": "https://github.com/bacarybruno/rn-camera-roll-picker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bacarybruno/rn-camera-roll-picker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bacarybruno/rn-camera-roll-picker/issues"
+  }
+}
