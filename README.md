@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to @kebetoo/camera-roll-picker 👋</h1>
 <p>
   <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/bacarybruno/rn-camera-roll-picker#README.md">
+  <a href="https://github.com/bacarybruno/camera-roll-picker#README.md">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
 </p>
@@ -10,7 +10,7 @@
 > Rewritten with performance in mind.
 > Based on [react-native-camera-roll-picker](https://github.com/jeanpan/react-native-camera-roll-picker#readme)
 
-### 🏠 [Homepage](https://github.com/bacarybruno/rn-camera-roll-picker)
+### 🏠 [Homepage](https://github.com/bacarybruno/camera-roll-picker)
 
 ## Getting started
 
@@ -28,6 +28,8 @@ $ npm install @react-native-community/cameraroll
 ```
 import CameraRollPicker from '@kebetoo/camera-roll-picker';
 ```
+
+<a href="https://raw.githubusercontent.com/bacarybruno/camera-roll-picker/main/demo/demo.gif"><img src="https://raw.githubusercontent.com/bacarybruno/camera-roll-picker/main/demo/demo.gif" width="350"></a>
 
 ## Usage
 ```js
@@ -50,7 +52,7 @@ import CameraRollPicker from '@kebetoo/camera-roll-picker';
 - `emptyText`: Text to display instead of a list when there are no photos found. (Default: 'No photos.')
 - `emptyTextStyle` : Styles to apply to the `emptyText`. (Default: `textAlign: 'center'`)
 - `loader` : Loader component node. (Default: `<ActivityIndicator />`)
-### New props
+#### New props
 - `groupName` : Specifies filter on group names, like 'Recent Photos', 'Whatsapp Images' or custom album titles. (Default: undefined)
 - `videoMarker` : Custom video marker component. (Default: Ionicons videocam)
 - `loaderColor`: Custom loader color, useful for theming the component. (Default: white)  ,
