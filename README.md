@@ -19,7 +19,7 @@
 $ npm install @kebetoo/camera-roll-picker --save
 ```
 
-* Install CameraRoll from @react-native-community
+* Install [CameraRoll](https://github.com/react-native-community/react-native-cameraroll) from @react-native-community
 ```
 $ npm install @react-native-community/cameraroll
 ```
@@ -57,7 +57,8 @@ import CameraRollPicker from '@kebetoo/camera-roll-picker';
 - `videoMarker` : Custom video marker component. (Default: Ionicons videocam)
 - `loaderColor`: Custom loader color, useful for theming the component. (Default: white)  ,
 -  `loaderSize`: Loader size. (Default: 25)
-- `checkPermissions` : A function to check android.permission.READ_EXTERNAL_STORAGE permission on Android. (Default: custom function based on PermissionsAndroid.request)
+- `checkPermissions` : A function to check `android.permission.READ_EXTERNAL_STORAGE` permission on Android. (Default: custom function based on PermissionsAndroid.request)
+- `include` : An array to specify fields other than the `uri` to include in the result. Possible values: [filename, fileSize, location, imageSize, playableDuration]. See [react-native-cameraroll#getphotos](https://github.com/react-native-cameraroll/react-native-cameraroll#getphotos) (Default: [])
 
 ## Run tests
 

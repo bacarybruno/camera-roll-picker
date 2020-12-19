@@ -60,6 +60,7 @@ const CameraRollPicker = (props) => {
     groupTypes,
     groupName,
     assetType,
+    include,
     loaderColor,
     loaderSize,
     checkPermissions,
@@ -118,6 +119,7 @@ const CameraRollPicker = (props) => {
       groupTypes,
       groupName,
       assetType,
+      include,
     }
 
     if (lastCursor) {
@@ -257,10 +259,16 @@ CameraRollPicker.defaultProps = {
   emptyText: 'No photos.',
   loaderColor: 'white',
   loaderSize: 25,
+  include: [],
   checkPermissions: async () => {
     if (Platform.OS === 'ios') return Promise.resolve(true)
-    const result = await PermissionsAndroid.request('android.permission.READ_EXTERNAL_STORAGE')
-    return Promise.resolve(result === 'granted')
+    const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
+    const hasPermission = await PermissionsAndroid.check(permission);
+    if (hasPermission) {
+      return true
+    }
+    const status = await PermissionsAndroid.request(permission)
+    return status === 'granted'
   },
   selectedMarker: (
     <Ionicon
