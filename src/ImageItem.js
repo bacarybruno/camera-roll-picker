@@ -1,10 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import {
-  Image,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-} from 'react-native'
+import React, { useCallback } from 'react'
+import { Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 const styles = StyleSheet.create({
   selectedMarker: {
@@ -26,24 +21,16 @@ const isVideo = (filename) => {
 }
 
 const ImageItem = (props) => {
-  const [imageSize, setImageSize] = useState(0)
-
   const {
     imageMargin,
-    imagesPerRow,
-    containerWidth,
     onClick,
     item,
     selectedMarker,
     selected,
     videoMarker,
+    itemSize,
   } = props
   const { image } = item.node
-
-  useEffect(() => {
-    const width = containerWidth || Dimensions.get('window').width
-    setImageSize((width - (imagesPerRow) * imageMargin) / imagesPerRow)
-  }, [containerWidth, imageMargin, imagesPerRow])
 
   const onPress = useCallback(() => {
     onClick(item.node.image)
@@ -56,10 +43,10 @@ const ImageItem = (props) => {
     >
       <Image
         source={{ uri: image.uri }}
-        style={{ height: imageSize, width: imageSize }}
+        style={{ height: itemSize, width: itemSize }}
       />
-      {isVideo(image.uri) && React.cloneElement(videoMarker, { style: styles.videoMarker })}
-      {selected && React.cloneElement(selectedMarker, { style: styles.selectedMarker })}
+      {isVideo(image.uri) && videoMarker && React.cloneElement(videoMarker, { style: styles.videoMarker })}
+      {selected && selectedMarker && React.cloneElement(selectedMarker, { style: styles.selectedMarker })}
     </TouchableOpacity>
   )
 }

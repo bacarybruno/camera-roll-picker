@@ -21,6 +21,7 @@ const Row = (props) => {
     isSelected,
     selectedMarker,
     videoMarker,
+    itemSize,
   } = props
 
   const renderImage = useCallback((item, selected) => {
@@ -31,8 +32,7 @@ const Row = (props) => {
         item={item}
         selected={selected}
         imageMargin={imageMargin}
-        imagesPerRow={imagesPerRow}
-        containerWidth={containerWidth}
+        itemSize={itemSize}
         onClick={selectImage}
         selectedMarker={selectedMarker}
         videoMarker={videoMarker}

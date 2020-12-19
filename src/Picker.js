@@ -7,6 +7,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   PermissionsAndroid,
+  Dimensions,
 } from 'react-native'
 import Ionicon from 'react-native-vector-icons/Ionicons'
 import CameraRoll from '@react-native-community/cameraroll'
@@ -54,6 +55,7 @@ const CameraRollPicker = (props) => {
     callback,
     selectSingleItem,
     selectedMarker,
+    videoMarker,
     containerWidth,
     groupTypes,
     groupName,
@@ -71,6 +73,7 @@ const CameraRollPicker = (props) => {
   const [noMore, setNoMore] = useState(false)
   const [data, setData] = useState([])
   const [seen, setSeen] = useState(new Set())
+  const itemSize = (Dimensions.get('window').width - (imagesPerRow) * imageMargin) / imagesPerRow
 
   const appendImages = useCallback((image) => {
     const assets = image.edges
@@ -168,6 +171,8 @@ const CameraRollPicker = (props) => {
         containerWidth={containerWidth}
         imageMargin={imageMargin}
         selectedMarker={selectedMarker}
+        videoMarker={videoMarker}
+        itemSize={itemSize}
       />
     )
   }, [containerWidth, imageMargin, imagesPerRow, selectImage, selected, selectedMarker])
@@ -183,27 +188,34 @@ const CameraRollPicker = (props) => {
     return null
   }, [loaderColor, loaderSize, noMore])
 
-  const keyExtractor = useCallback((item) => item[0].node.image.uri, [])
+  const keyExtractor = useCallback((item, index) => item[0].node.image.uri + index, [])
 
   const renderItem = useCallback(({ item }) => renderRow(item), [renderRow])
+
+  const getEmojiItemsLayout = useCallback((_, index) => ({
+    length: itemSize, offset: itemSize * index, index,
+  }), [])
 
   const renderFlatlistOrEmpty = useMemo(() => {
     if (data.length > 0) {
       return (
         <FlatList
+          data={data}
+          removeClippedSubviews
           style={styles.flatlist}
-          ListFooterComponent={renderFooterSpinner}
-          initialNumToRender={initialNumToRender}
-          onEndReached={onEndReached}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
-          data={data}
+          onEndReached={onEndReached}
+          getItemLayout={getEmojiItemsLayout}
+          initialNumToRender={initialNumToRender}
+          ListFooterComponent={renderFooterSpinner}
         />
       )
     }
     return <Text style={[{ textAlign: 'center' }, emptyTextStyle]}>{emptyText}</Text>
   }, [data, emptyText, emptyTextStyle, initialNumToRender, keyExtractor, onEndReached, renderFooterSpinner, renderItem])
 
+  // fetch on mount
   useEffect(() => {
     fetch()
   }, [])
