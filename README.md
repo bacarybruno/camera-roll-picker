@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to @kebetoo/camera-roll-picker 👋</h1>
 <p>
-  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://badge.fury.io/js/%40kebetoo%2Fcamera-roll-picker"><img src="https://badge.fury.io/js/%40kebetoo%2Fcamera-roll-picker.svg" alt="npm version" height="18"></a>
   <a href="https://github.com/bacarybruno/camera-roll-picker#README.md">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
