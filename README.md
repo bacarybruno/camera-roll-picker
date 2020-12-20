@@ -24,7 +24,7 @@ $ npm install @kebetoo/camera-roll-picker --save
 $ npm install @react-native-community/cameraroll
 ```
 
-* (Optional) This package uses (react-native-vector-icons)(https://github.com/oblador/react-native-vector-icons) for default icons (`selectedMarker` and `videoMarker`). Please install the package according to the [documentation](https://github.com/oblador/react-native-vector-icons#installation) if you want to use default icons, or provided you own icons as props.
+* (Optional) This package uses [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) for default icons (`selectedMarker` and `videoMarker`). Please install the package according to the [documentation](https://github.com/oblador/react-native-vector-icons#installation) if you want to use default icons, or provided you own icons as props.
 
 * Require component
 ```
