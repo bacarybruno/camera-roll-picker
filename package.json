@@ -8,7 +8,8 @@
   },
   "peerDependencies": {
     "@react-native-community/cameraroll": "^4.0.1",
-    "react-native": ">=0.59"
+    "react-native": ">=0.59",
+    "react-native-vector-icons": "^7.1.0"
   },
   "author": "bacarybruno",
   "license": "MIT",
