@@ -110,6 +110,7 @@ const CameraRollPicker = (props) => {
   const doFetch = useCallback(async () => {
     const granted = await checkPermissions()
     if (!granted) {
+      setInitialLoading(false)
       console.log('Access to assets was denied!')
       return
     }
