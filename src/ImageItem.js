@@ -29,7 +29,7 @@ const ImageItem = (props) => {
   const { image, type } = item.node
 
   const onPress = useCallback(() => {
-    onClick(item.node.image)
+    onClick({ ...image, type })
   }, [item, onClick])
 
   return (
